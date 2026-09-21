@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="口袋妖怪珍珠攻略站提供游戏攻略、图鉴查询、配招推荐及图鉴收集进度追踪。涵盖珍珠钻石版本全流程指南、神兽捕捉技巧及通关攻略。">
+    <meta name="keywords" content="口袋妖怪珍珠, 珍珠钻石攻略, 宝可梦攻略, 珍珠图鉴, 配招">
+    <title>口袋妖怪珍珠-全流程攻略与图鉴查询平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b4cca;
+            --secondary-color: #f0a500;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2c3e50);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, #2c3e50, #4ca1af);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Sidebar */
+        aside {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        aside h3 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .category-list a:hover {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+        }
+
+        .category-list a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Content Area */
+        .content-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        /* Guide Cards */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: #fff;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Dex Table */
+        .dex-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .dex-table th, .dex-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dex-table th {
+            background-color: #f8f9fa;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .dex-table tr:hover {
+            background-color: #fafafa;
+        }
+
+        .poke-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <a href="#" class="logo">
+            <span>◆</span> 口袋妖怪珍珠
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#guide">全流程攻略</a></li>
+                <li><a href="#dex">图鉴查询</a></li>
+                <li><a href="#items">道具图鉴</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>探索神奥地区的冒险</h1>
+        <p>《宝可梦 珍珠》全流程通关攻略、神兽捕捉指南与图鉴收集进度追踪。</p>
+    </div>
+</div>
+
+<main class="container main-grid">
+    <aside>
+        <h3>游戏分类</h3>
+        <ul class="category-list">
+            <li><a href="#" class="active">首页概览</a></li>
+            <li><a href="#">主线剧情</a></li>
+            <li><a href="#">神兽捕捉</a></li>
+            <li><a href="#">对战竞技</a></li>
+            <li><a href="#">图鉴收集</a></li>
+            <li><a href="#">隐藏道具</a></li>
+        </ul>
+        
+        <h3 style="margin-top: 30px;">热门配招推荐</h3>
+        <ul class="category-list">
+            <li><a href="#">烈咬陆鲨 物理流</a></li>
+            <li><a href="#">烈咬陆鲨 特殊流</a></li>
+            <li><a href="#">巨金怪 钢系队</a></li>
+            <li><a href="#">路卡利欧 物攻队</a></li>
+            <li><a href="#">耿鬼 鬼火队</a></li>
+        </ul>
+    </aside>
+
+    <section class="content-area">
+        <!-- 攻略区域 -->
+        <article class="content-section" id="guide">
+            <div class="section-header">
+                <h2>全流程通关攻略</h2>
+                <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">查看更多 &rarr;</a>
+            </div>
+            
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <img src="https://picsum.photos/seed/pokemon1/400/250" alt="御三家选择" class="card-img">
+                    <div class="card-body">
+                        <div class="card-title">御三家选择与初期发展</div>
+                        <p class="card-desc">详细介绍草系小拉达、火系火球鼠和水系水水獭在珍珠版中的初始属性及进化路线，帮助新手快速组建初期队伍。</p>
+                        <div class="card-meta">
+                            <span class="tag">新手入门</span>
+                            <span>阅读: 12k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <img src="https://picsum.photos/seed/pokemon2/400/250" alt="神兽捕捉" class="card-img">
+                    <div class="card-body">
+                        <div class="card-title">帝牙卢卡与帕路奇亚捕捉</div>
+                        <p class="card-desc">神奥地区传说宝可梦捕捉完整攻略，包含时间线选择、战斗技巧及白金/珍珠/钻石版本差异说明。</p>
+                        <div class="card-meta">
+                            <span class="tag">传说宝可梦</span>
+                            <span>阅读: 8.5k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <img src="https://picsum.photos/seed/pokemon3/400/250" alt="道馆挑战" class="card-img">
+                    <div class="card-body">
+                        <div class="card-title">八大道馆挑战详解</div>
+                        <p class="card-desc">从真司到冠军丹帝的完整对战流程，包含每道馆馆主的弱点分析及最佳精灵推荐。</p>
+                        <div class="card-meta">
+                            <span class="tag">对战指南</span>
+                            <span>阅读: 15k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-card">
+                    <img src="https://picsum.photos/seed/pokemon4/400/250" alt="地下遗迹" class="card-img">
+                    <div class="card-body">
+                        <div class="card-title">地下遗迹与对战开拓区</div>
+                        <p class="card-desc">探索地下遗迹寻找稀有宝可梦，以及如何进入对战开拓区进行高等级对战。</p>
+                        <div class="card-meta">
+                            <span class="tag">隐藏区域</span>
+                            <span>阅读: 6.2k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 图鉴区域 -->
+        <article class="content-section" id="dex" style="margin-top: 40px;">
+            <div class="section-header">
+                <h2>神奥地区图鉴</h2>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" placeholder="搜索宝可梦..." style="padding: 5px 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+            </div>
+
+            <table class="dex-table">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>属性</th>
+                        <th>分类</th>
+                        <th>身高/体重</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#393</td>
+                        <td><a href="#">波加曼</a></td>
+                        <td><span class="tag">水</span></td>
+                        <td>水波宝可梦</td>
+                        <td>0.5m / 5.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#394</td>
+                        <td><a href="#">小火猴</a></td>
+                        <td><span class="tag">火</span></td>
+                        <td>火焰宝可梦</td>
+                        <td>0.6m / 19.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#395</td>
+                        <td><a href="#">草苗龟</a></td>
+                        <td><span class="tag">草</span></td>
+                        <td>种子宝可梦</td>
+                        <td>0.5m / 9.5kg</td>
+                    </tr>
+                    <tr>
+                        <td>#448</td>
+                        <td><a href="#">烈咬陆鲨</a></td>
+                        <td><span class="tag">龙</span> <span class="tag">地面</span></td>
+                        <td>咬咬宝可梦</td>
+                        <td>1.8m / 95.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#449</td>
+                        <td><a href="#">古拉顿</a></td>
+                        <td><span class="tag">火</span></td>
+                        <td>熔岩宝可梦</td>
+                        <td>2.0m / 202.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#450</td>
+                        <td><a href="#">固拉多</a></td>
+                        <td><span class="tag">地面</span></td>
+                        <td>海洋宝可梦</td>
+                        <td>2.0m / 200.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#487</td>
+                        <td><a href="#">帝牙卢卡</a></td>
+                        <td><span class="tag">龙</span> <span class="tag">钢</span></td>
+                        <td>时间宝可梦</td>
+                        <td>3.2m / 194.0kg</td>
+                    </tr>
+                    <tr>
+                        <td>#488</td>
+                        <td><a href="#">帕路奇亚</a></td>
+                        <td><span class="tag">龙</span> <span class="tag">水</span></td>
+                        <td>空间宝可梦</td>
+                        <td>3.2m / 201.0kg</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于本站</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系方式</a>
+            <a href="#">友情链接</a>
+        </div>
+        <p class="copyright">© 2023 口袋妖怪珍珠攻略站. 本站为玩家交流与攻略整理平台，游戏版权归任天堂、Game Freak及 Creatures Inc. 所有。</p>
+    </div>
+</footer>
+
+</body>
+</html>
