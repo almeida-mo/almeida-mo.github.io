@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="现任英国首相详细介绍页面。提供首相最新动态、政策主张、个人履历及官方新闻资讯，帮助用户快速了解英国政坛核心人物信息。">
+    <meta name="keywords" content="现任英国首相, 英国首相, 英国政府, 苏纳克, 里希·苏纳克, 英国政治">
+    <title>现任英国首相-最新动态、政策主张与官方资讯</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00247D;
+            --secondary-color: #CF142B;
+            --accent-color: #D4AF37;
+            --text-dark: #1a1a1a;
+            --text-gray: #555555;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--white);
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Main Layout */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* News List */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .news-date {
+            background-color: var(--bg-light);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+
+        .news-date .day {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        .news-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .news-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        .news-tags span {
+            display: inline-block;
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+        }
+
+        .profile-card {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            object-fit: cover;
+            border: 4px solid var(--bg-light);
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-role {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .info-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-gray);
+        }
+
+        .info-value {
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .policy-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .policy-tag {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #eee;
+        }
+
+        /* Featured Section */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .read-more {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .nav-actions {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .news-item {
+                flex-direction: column;
+            }
+            .news-date {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 8px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            .news-date .day {
+                font-size: 1.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none; /* Simplified mobile nav for demo */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">🇬🇧</div>
+            英国政要通
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">现任首相</a></li>
+                <li><a href="#">政府内阁</a></li>
+                <li><a href="#">政策文件</a></li>
+                <li><a href="#">议会动态</a></li>
+                <li><a href="#">历史人物</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button class="btn btn-outline">订阅新闻</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>里希·苏纳克</h1>
+                <p class="subtitle">Rishi Sunak | 英国第78任首相</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>2022年10月</strong>
+                        <span>就任时间</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>保守党</strong>
+                        <span>所属政党</span>
+                    </div>
+                </div>
+
+                <p style="margin-bottom: 24px; color: #444;">
+                    里希·苏纳克是英国历史上首位亚裔首相，此前曾担任财政大臣。他于2022年10月25日就任首相，接替伊丽莎白·特拉斯。苏纳克领导保守党赢得2024年7月大选，成功连任。
+                </p>
+
+                <div style="display: flex; gap: 12px;">
+                    <a href="#news" class="btn" style="background-color: var(--primary-color); color: white;">查看最新动态</a>
+                    <a href="#policy" class="btn btn-outline">了解政策主张</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Rishi_Sunak_official_portrait_2023.jpg/440px-Rishi_Sunak_official_portrait_2023.jpg" alt="里希·苏纳克官方肖像">
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content container" id="news">
+        <div class="grid-layout">
+            <!-- Main Column -->
+            <div class="content-col">
+                <div class="section-header">
+                    <h2 class="section-title">最新官方动态</h2>
+                    <a href="#" style="color: var(--primary-color); font-weight: 500;">查看全部 &rarr;</a>
+                </div>
+
+                <div class="news-list">
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">24</span>
+                            <span class="month">7月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>苏纳克发表胜选讲话，承诺延续经济改革</h3>
+                            <p>在保守党赢得大选后，苏纳克向全国发表讲话，表示将继续推动经济增长、控制通货膨胀，并致力于改善公共服务。</p>
+                            <div class="news-tags">
+                                <span>选举</span>
+                                <span>经济</span>
+                                <span>政策</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">18</span>
+                            <span class="month">7月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>英国与欧盟达成新的贸易与安全协定</h3>
+                            <p>苏纳克政府与欧盟领导人举行会谈，就新的渔业协议及数据共享框架达成一致，旨在缓解脱欧后的贸易紧张关系。</p>
+                            <div class="news-tags">
+                                <span>外交</span>
+                                <span>脱欧</span>
+                                <span>贸易</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <div class="news-date">
+                            <span class="day">05</span>
+                            <span class="month">7月</span>
+                        </div>
+                        <div class="news-content">
+                            <h3>苏纳克宣布新的基础设施建设计划</h3>
+                            <p>政府发布《全国基础设施战略》，计划在未来十年投入数百亿英镑用于交通、能源及数字网络建设。</p>
+                            <div class="news-tags">
+                                <span>基建</span>
+                                <span>投资</span>
+                                <span>民生</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-header" style="margin-top: 40px;">
+                    <h2 class="section-title">深度分析</h2>
+                </div>
+                <div class="featured-grid">
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/pol1/400/250" alt="教育政策">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">英国教育改革：苏纳克政府的重点方向</h3>
+                            <p class="card-desc">分析新政府如何调整学校预算，以及对教师薪资和课程设置的具体规划。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/pol2/400/250" alt="医疗改革">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">NHS改革：挑战与机遇并存</h3>
+                            <p class="card-desc">探讨苏纳克政府对国民医疗服务体系的长期投资计划及面临的压力。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar-col">
+                <div class="sidebar-section">
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem;">人物档案</h3>
+                    <div class="profile-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Rishi_Sunak_official_portrait_2023.jpg/440px-Rishi_Sunak_official_portrait_2023.jpg" alt="苏纳克" class="profile-avatar">
+                        <h4 class="profile-name">里希·苏纳克</h4>
+                        <p class="profile-role">现任英国首相</p>
+                    </div>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-label">出生日期</span>
+                            <span class="info-value">1980年5月12日</span>
+                        </li>
+                        <li>
+                            <span class="info-label">出生地</span>
+                            <span class="info-value">英国萨里郡</span>
+                        </li>
+                        <li>
+                            <span class="info-label">所属政党</span>
+                            <span class="info-value">保守党</span>
+                        </li>
+                        <li>
+                            <span class="info-label">配偶</span>
+                            <span class="info-value">阿克沙塔·穆尔蒂</span>
+                        </li>
+                        <li>
+                            <span class="info-label">教育背景</span>
+                            <span class="info-value">牛津大学、斯坦福大学</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem;">主要政策标签</h3>
+                    <div class="policy-tags">
+                        <span class="policy-tag">经济增长</span>
+                        <span class="policy-tag">控制通胀</span>
+                        <span class="policy-tag">移民控制</span>
+                        <span class="policy-tag">绿色能源</span>
+                        <span class="policy-tag">医疗改革</span>
+                        <span class="policy-tag">教育公平</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 style="margin-bottom: 20px; font-size: 1.2rem;">政府内阁</h3>
+                    <ul class="info-list" style="padding: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                            <span class="info-label">财政大臣</span>
+                            <span class="info-value">杰里米·亨特</span>
+                        </li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                            <span class="info-label">外交大臣</span>
+                            <span class="info-value">戴维·拉米</span>
+                        </li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #eee;">
+                            <span class="info-label">内政大臣</span>
+                            <span class="info-value">詹姆斯·克莱弗利</span>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <span class="info-label">卫生大臣</span>
+                            <span class="info-value">维斯特·布鲁克</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 16px;">
+                    <div class="logo-icon">🇬🇧</div>
+                    英国政要通
+                </div>
+                <p>致力于提供准确、及时、全面的英国政坛人物信息与政策解读，服务于关注国际政治与英国事务的读者。</p>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul class="footer-links">
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">编辑团队</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">版权声明</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul class="footer-links">
+                    <li><a href="#">英国皇室</a></li>
+                    <li><a href="#">议会制度</a></li>
+                    <li><a href="#">选举制度</a></li>
+                    <li><a href="#">历史档案</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p>获取最新英国政治资讯推送。</p>
+                <div style="display: flex; gap: 10px;">
+                    <span style="background:#333; padding:5px 10px; border-radius:4px; font-size:0.8rem;">Twitter</span>
+                    <span style="background:#333; padding:5px 10px; border-radius:4px; font-size:0.8rem;">Facebook</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 英国政要通信息服务平台. All rights reserved. 本站内容仅供参考，数据基于公开资料整理。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                      </html>
